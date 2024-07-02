@@ -1,0 +1,51 @@
+h2 {
+    /* font-family: Poppins; */
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 51px;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+
+.side-bacground {
+    background: linear-gradient(180deg, #35142C 0%, #612550 25%, #497284 75%, #31BFB7 100%);
+    flex: 1;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+.logInForm {
+    display: flex;
+    height: 100vh;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.rounded-input {
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    padding: 8px;
+    width: 100%; 
+    box-sizing: border-box; 
+    box-shadow: none;
+}
+.rounded-input:focus {
+    border-color: #4169E1
+}
+.rounded-btn {
+        border-radius: 10px; /* Adjust the radius as per your design */
+        border: 1px solid #ccc; /* Example border style */
+        padding: 8px; /* Adjust padding as needed */
+        width: 100%; /* Example width */
+        box-sizing: border-box; /* Ensure padding and border don't affect width */
+}
+.label-text {
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 21px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
