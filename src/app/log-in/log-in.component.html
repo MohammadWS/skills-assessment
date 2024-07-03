@@ -11,31 +11,38 @@
                         <small>Please enter your credintials</small>
                     </div>
                     <!-- <div *ngIf=""></div> -->
-                    ..
-                    <form>
-                    <div class="mt-3">
-                        <label class="ms-1 label-text" for="username">Username</label>
-                        <input type="text" class="form-control mt-1 rounded-input" placeholder="Enter your username">
+                    <div *ngIf="isError" class="alert alert-danger mt-2 rounded-alert text-center fw-bold ">
+                        <small>Please enter a correct national ID/password</small>
                     </div>
-                    <div class="mt-3">
-                        <label class="ms-1 label-text" for="Password">Password</label>
-                        <input type="password" class="form-control mt-1 rounded-input" placeholder="********">
-                    </div>
-                    <div class="mt-2 row gx-5">
-                        <div class="col-sm-6 col-md-8">
-                            <input type="checkbox">
-                            <label class="ms-1 label-text" for="remember me">Remember me</label>
+                    <!-- form -->
+                    <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+                        <div class="mt-3">
+                            <label class="ms-1 label-text">Username</label>
+                            <input type="number" class="form-control mt-1 rounded-input"
+                                placeholder="Enter your username" formControlName="username"
+                                [ngClass]="{'rounded-input-error': (logInForm.get('username')?.invalid && logInForm.get('username')?.touched)}">
                         </div>
-                        <div class="text-end col-6 col-md-4 label-text">
-                            Forgot password
+                        <div class="mt-3">
+                            <label class="ms-1 label-text">Password</label>
+                            <input type="password" class="form-control mt-1 rounded-input" placeholder="********"
+                                formControlName="password" [ngClass]="{'rounded-input-error': (isError)}">
                         </div>
-                    </div>
-                    <div>
-                        <button class="btn mt-3 col-md-12 text-light rounded-btn"
-                            style="background-color: #612550;">Sign
-                            In</button>
-                    </div>
-                </form>
+                        <div class="mt-2 row gx-5">
+                            <div class="col-sm-6 col-md-8">
+                                <input type="checkbox" formControlName="rememberMe">
+                                <label class="ms-1 label-text">Remember me</label>
+                            </div>
+                            <div class="text-end col-6 col-md-4 label-text">
+                                Forgot password
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn mt-3 col-md-12 text-light rounded-btn" (click)="onSubmit()"
+                                style="background-color: #612550;">Sign
+                                In</button>
+                        </div>
+                    </form>
+                    <!-- form end -->
                 </div>
             </div>
         </div>
@@ -43,7 +50,8 @@
         <div class="col-md-6 side-bacground ">
             <div>
                 <div class="container mt-5 text-center">
-                    <img src="assets/images/logoimg.png" alt="Example Image" class="img-fluid ">
+                    <img src="assets/images/logoimg.png" alt="Example Image" class="img-fluid" style="width: auto; height: 100%;">
+ 
                 </div>
 
             </div>
