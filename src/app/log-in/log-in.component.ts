@@ -8,18 +8,6 @@ import { trigger, animate, state, style, transition } from '@angular/animations'
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css'],
-  animations: [
-    trigger('fadeIn', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('300ms', style({ opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('300ms', style({ opacity: 0 }))
-      ])
-    ])
-  ]
 })
 export class LogInComponent implements OnInit {
   logInForm: FormGroup = new FormGroup({});
@@ -32,7 +20,8 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    router: Router,) {
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
@@ -60,6 +49,7 @@ export class LogInComponent implements OnInit {
         password: this.logInForm.value.password,
         rememberMe: this.logInForm.value.rememberMe
       }
+      this.router.navigate(['/home']);
     }
     else {
       console.log("Form Not Submitted!");
