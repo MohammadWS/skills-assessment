@@ -7,7 +7,8 @@
                     <div class="mt-5">
                         <h2 class="text-center">LOGIN</h2>
                     </div>
-                    <div class="text-center text-black-50">
+                    <div class="text-center"
+                    style="color: #636364;">
                         <small>Please enter your credintials</small>
                     </div>
                     <!-- <div *ngIf=""></div> -->
@@ -20,7 +21,7 @@
                             <label class="ms-1 label-text">Username</label>
                             <input type="number" class="form-control mt-1 rounded-input"
                                 placeholder="Enter your username" formControlName="username"
-                                [ngClass]="{'rounded-input-error': (logInForm.get('username')?.invalid && logInForm.get('username')?.touched)}">
+                                [ngClass]="{'rounded-input-error': (isError)}">
                         </div>
                         <div class="mt-3">
                             <label class="ms-1 label-text">Password</label>
@@ -37,8 +38,7 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn mt-3 col-md-12 text-light rounded-btn" (click)="onSubmit()"
-                                style="background-color: #612550;">Sign
+                            <button class="btn mt-3 col-md-12 text-light rounded-btn " (click)="onSubmit()">Sign
                                 In</button>
                         </div>
                     </form>
@@ -50,7 +50,8 @@
         <div class="col-md-6 side-bacground ">
             <div>
                 <div class="container mt-5 text-center">
-                    <img src="assets/images/logoimg.png" alt="Example Image" class="img-fluid" style="width: auto; height: 100%;">
+                    <img src="assets/images/logoimg.png" alt="Example Image" class="img-fluid"
+                        style="width: auto; height: 100%;">
                 </div>
 
             </div>
